@@ -15,12 +15,14 @@ int main(int argc, char *argv[]) {
         char c;
         key = strtol(argv[1], NULL, 16); //Get key number value from command line
         bytesR = read(0, inp, MAX_SIZE);
-            for(int i = 0; i <= bytesR; i++) {
+        printf("Expected Exit Code: 0\n");
+            for(int i = 0; i < bytesR-1; i++) {
                 c = inp[i];
                 c ^= key; //XOR the character with the key
-                printf("%c", c);
+                c &= 0xFF;
+                printf("%X", c);
             }
-        printf("\nExpected Exit Code: 0\n%ld\n", key);
+            printf("\n");
     }
     return 0;
 }
