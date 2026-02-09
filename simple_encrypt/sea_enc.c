@@ -13,7 +13,7 @@ int main(int argc, char *argv[]) {
         uint16_t key; //Encrypt key
         char inp[MAX_SIZE]; //Character for input
         unsigned char c; //Character to hold the encrypted value
-        key = strtol(argv[1], NULL, 16); //Get key number value from command line
+        key = strtol(argv[1], NULL, 16); //Get key number value from command line in hex
         ssize_t bytesR = read(0, inp, MAX_SIZE); //Receive input from user
         printf("Expected Exit Code: 0\n");
             for(ssize_t i = 0; i < bytesR-1; i++) {
