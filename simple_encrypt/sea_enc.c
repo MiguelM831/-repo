@@ -15,7 +15,7 @@ int main(int argc, char *argv[]) {
         unsigned char c;
         key = strtol(argv[1], NULL, 16); //Get key number value from command line
         ssize_t bytesR = read(0, inp, MAX_SIZE);
-        printf("Expected Exit Code: 0\n%zd\n", bytesR);
+        printf("Expected Exit Code: 0\n");
             for(ssize_t i = 0; i < bytesR-1; i++) {
                 c = (unsigned char)inp[i] ^ (unsigned char)key;
                 c &= 0xFF;
@@ -27,6 +27,7 @@ int main(int argc, char *argv[]) {
                     key += 1;
                     key *= 257;
                 }
+                if((i+1)%40 == 0 && i != 0) printf("\n");
             }
             printf("\n");
     }
